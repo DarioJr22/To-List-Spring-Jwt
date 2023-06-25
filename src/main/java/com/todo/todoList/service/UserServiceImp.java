@@ -29,6 +29,8 @@ public class UserServiceImp implements UserService{
 
        if(Objects.nonNull(userUp.getNome())){
            UserOld.setNome(userUp.getNome());
+           UserOld.setLogin(userUp.getLogin());
+           UserOld.setSenha(userUp.getSenha());
        }
         return UserRepo.save(UserOld);
     }
