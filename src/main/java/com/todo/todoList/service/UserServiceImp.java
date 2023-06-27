@@ -1,5 +1,6 @@
 package com.todo.todoList.service;
 
+import com.todo.todoList.model.Login;
 import com.todo.todoList.model.User;
 import com.todo.todoList.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,18 @@ public class UserServiceImp implements UserService{
       return (ArrayList<User>) UserRepo.findAll();
     }
 
+
+    public User loginUser(Login login){
+      User b = null;
+      ArrayList<User> userList = (ArrayList<User>) UserRepo.findAll();
+         for(User i:userList){
+             if(i.getLogin().equals(login.getLogin()) && i.getSenha().equals(login.getSenha())){
+                 b = UserRepo.findById(i.getId()).get();
+                 return b;
+             };
+         }
+         return b;
+    };
     @Override
     public User putUser(User userUp, Long id) {
        User UserOld = UserRepo.findById(id).get();

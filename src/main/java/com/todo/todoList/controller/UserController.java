@@ -1,9 +1,11 @@
 package com.todo.todoList.controller;
 
+import com.todo.todoList.model.Login;
 import com.todo.todoList.model.User;
 import com.todo.todoList.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -19,9 +21,18 @@ public class UserController {
         return UserService.getUser();
     }
 
+    @PostMapping("/login")
+    public ResponseEntity<User> loginUser(@RequestBody Login login){
+        User userInvalid = new User(null,null,null,null,null);
+        User response = UserService.loginUser(login) != null ? UserService.loginUser(login) : userInvalid  ;
+
+
+        return new ResponseEntity<>(response,HttpStatus.OK);
+    }
+
     @PostMapping("/post")
     public User postUsers(@RequestBody User user){
-      return UserService.saveUser(user);
+        return UserService.saveUser(user);
     };
 
     @PutMapping("/{id}")
