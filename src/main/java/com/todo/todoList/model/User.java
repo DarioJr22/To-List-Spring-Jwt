@@ -34,4 +34,8 @@ public class User {
     @OneToMany(mappedBy = "usuario")
     private List<Task> tasks = new ArrayList<Task>();
 
+    @JsonIgnore
+    @OneToMany(mappedBy = "module")
+    private List<Modules> modules = new ArrayList<Modules>();
+
 }
