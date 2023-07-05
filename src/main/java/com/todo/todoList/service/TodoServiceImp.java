@@ -33,9 +33,10 @@ public class TodoServiceImp  implements TodoService{
         if(Objects.nonNull(taskUp.getName()) && Objects.nonNull(taskUp.getName()) && Objects.nonNull(taskUp.getName()) ){
 
             taskOld.setName(taskUp.getName());
-            taskOld.setDate(taskUp.getDate());
-            taskOld.setTaskInit(taskOld.getTaskInit());
-            taskOld.setTaskEnd(taskOld.getTaskEnd());
+            taskOld.setData_ini(taskUp.getData_ini());
+            taskOld.setData_fin(taskUp.getData_fin());
+            taskOld.setTask_ini(taskOld.getTask_ini());
+            taskOld.setTask_fin(taskOld.getTask_fin());
         }
 
         return TaskRepo.save(taskOld);

@@ -24,15 +24,18 @@ private Long id;
 @Column(name="descricao",nullable = false,length = 244)
 private String name;
 
-@Column(name="data", nullable = false)
-private Date date;
+@Column(name="data_ini", nullable = false)
+private Date data_ini;
+
+@Column(name="data_fin")
+private Date data_fin;
 
 @Column(name="taskInit")
-private Boolean taskInit;
+private Boolean task_ini;
 
 
 @Column(name="taskEnd")
-private Boolean taskEnd;
+private Boolean task_fin;
 
 @ManyToOne
 @JoinColumn(name = "usuario",nullable = false,updatable = false)

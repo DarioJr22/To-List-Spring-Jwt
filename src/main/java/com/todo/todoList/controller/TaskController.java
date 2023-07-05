@@ -4,6 +4,8 @@ package com.todo.todoList.controller;
 import com.todo.todoList.model.Task;
 import com.todo.todoList.service.TodoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -29,10 +31,13 @@ public class TaskController {
         return todoService.putTask(task,id);
     }
 
+
+    //Erro na entidade de respostas
     @DeleteMapping("/{id}")
-    public String deleteTasl(@PathVariable("id") Long id){
+    public ResponseEntity<String> deleteTasl(@PathVariable("id") Long id){
         todoService.deleteTask(id);
-        return "Usuário" + id + "deletado com Sucesso !" ;
+
+        return new ResponseEntity<String>("usuario deletado", HttpStatus.OK) ;
 
     }
 }

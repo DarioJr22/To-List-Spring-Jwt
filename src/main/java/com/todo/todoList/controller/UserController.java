@@ -23,7 +23,7 @@ public class UserController {
 
     @PostMapping("/login")
     public ResponseEntity<User> loginUser(@RequestBody Login login){
-        User userInvalid = new User(null,null,null,null,null,null);
+        User userInvalid = new User(null,null,null,null,null);
         User response = UserService.loginUser(login) != null ? UserService.loginUser(login) : userInvalid  ;
 
 

@@ -7,6 +7,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Data
 @Table(name = "modules")
 @Entity
@@ -29,11 +32,13 @@ public class Modules {
     @Column(name="icon")
     private String icon;
 
-    @Column
+    @Column(name = "active")
+    private Boolean active;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "modules" )
+    private List<MenuModules> menuModulesList = new ArrayList<MenuModules>();
 
    //Vínculo
-   @ManyToOne
-   @JoinColumn(name = "usuario",nullable = false,updatable = false)
-   private User usuario;
 
 }

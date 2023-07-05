@@ -6,6 +6,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
+
 @Entity
 @Data
 @Table(name="menuModules")
@@ -13,11 +15,17 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class MenuModules {
     @Id
-    @Column(name = "id")
+    @Column(name = "id",nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name="nome",nullable = false)
+    private String nome;
+
+    @Column(name="link")
+    private String link;
+
     @ManyToOne
     @JoinColumn(name ="modules",nullable = false,updatable = false)
-    private Modules module;
+    private Modules modules;
 }

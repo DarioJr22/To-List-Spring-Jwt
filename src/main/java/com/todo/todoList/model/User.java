@@ -27,15 +27,15 @@ public class User {
     @Column(name="login", unique =true,nullable = false)
     private String login;
 
-    @Column(name="senha",unique = true,nullable = false)
+    @Column(name="senha",nullable = false)
     private String senha;
 
     @JsonIgnore
     @OneToMany(mappedBy = "usuario")
     private List<Task> tasks = new ArrayList<Task>();
-
+/*
     @JsonIgnore
-    @OneToMany(mappedBy = "module")
+    @OneToMany(mappedBy = "modules")
     private List<Modules> modules = new ArrayList<Modules>();
-
+*/
 }
