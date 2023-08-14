@@ -9,9 +9,11 @@ import org.springframework.context.annotation.Bean;
 
 @ConfigurationProperties("todolist")
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
 public class todoListProperty {
+
+    todoListProperty(){
+     setOriginPermitida("http://localhost:4200");
+    }
 
     public String getOriginPermitida() {
         return originPermitida;
@@ -21,7 +23,7 @@ public class todoListProperty {
         this.originPermitida = originPermitida;
     }
 
-    private String originPermitida = "http://localhost:8000";
+    private String originPermitida = "http://localhost:4200";
 
 
 }

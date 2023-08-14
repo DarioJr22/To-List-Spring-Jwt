@@ -1,19 +1,22 @@
 package com.todo.todoList.service;
 
 import com.todo.todoList.model.Task;
+import com.todo.todoList.model.User;
 import com.todo.todoList.repository.TodoRepository;
+import com.todo.todoList.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Objects;
+import java.util.Optional;
 
 @Service
 
 public class TodoServiceImp  implements TodoService{
 
     @Autowired TodoRepository TaskRepo;
-
+    @Autowired UserRepository userRepository;
     @Override
     public Task saveTask(Task task) {
         TaskRepo.save(task);
@@ -28,22 +31,15 @@ public class TodoServiceImp  implements TodoService{
 
     @Override
     public Task putTask(Task taskUp, Long id) {
-        Task taskOld = TaskRepo.findById(id).get();
-
-        if(Objects.nonNull(taskUp.getName()) && Objects.nonNull(taskUp.getName()) && Objects.nonNull(taskUp.getName()) ){
-
-            taskOld.setName(taskUp.getName());
-            taskOld.setData_ini(taskUp.getData_ini());
-            taskOld.setData_fin(taskUp.getData_fin());
-            taskOld.setTask_ini(taskOld.getTask_ini());
-            taskOld.setTask_fin(taskOld.getTask_fin());
-        }
-
-        return TaskRepo.save(taskOld);
+        User user = userRepository.findById(taskUp.getUsuario().getId()).get();
+        taskUp.setUsuario(user);
+        return TaskRepo.save(taskUp);
     }
 
     @Override
-    public void deleteTask(Long id) {
+    public Object deleteTask(Long id) {
+        Object task = TaskRepo.findById(id);
         TaskRepo.deleteById(id);
+        return task;
     }
 }

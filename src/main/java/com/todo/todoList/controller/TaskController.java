@@ -34,10 +34,10 @@ public class TaskController {
 
     //Erro na entidade de respostas
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> deleteTasl(@PathVariable("id") Long id){
-        todoService.deleteTask(id);
+    public ResponseEntity<Object> deleteTask(@PathVariable("id") Long id){
+         Object objDeletado = todoService.deleteTask(id);
 
-        return new ResponseEntity<String>("usuario deletado", HttpStatus.OK) ;
+        return new ResponseEntity<Object>(objDeletado, HttpStatus.OK) ;
 
     }
 }

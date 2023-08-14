@@ -12,7 +12,7 @@ import java.util.List;
 
 @Entity
 @Data
-@Table(name = "usuarios_todo")
+@Table(name = "usuarios")
 @NoArgsConstructor
 @AllArgsConstructor
 public class User {
@@ -33,6 +33,11 @@ public class User {
     @JsonIgnore
     @OneToMany(mappedBy = "usuario")
     private List<Task> tasks = new ArrayList<Task>();
+
+    @ManyToOne
+    @JoinColumn(name = "empresa_user",nullable = false,updatable = false)
+    private Empresa empresa_user;
+
 /*
     @JsonIgnore
     @OneToMany(mappedBy = "modules")

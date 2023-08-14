@@ -12,7 +12,7 @@ public interface TodoService {
 
     Task putTask(Task taskUp,Long id);
 
-    void deleteTask(Long id);
+    Object deleteTask(Long id);
 
 
 }
