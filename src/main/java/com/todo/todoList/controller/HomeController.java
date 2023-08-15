@@ -21,7 +21,7 @@ public class HomeController {
 }
 
 @PostMapping("/post")
-    public Modules postModules(@RequestBody Modules module){
+    public Modules[] postModules(@RequestBody Modules[] module){
         moduleService.saveModule(module);
         return module;
     }

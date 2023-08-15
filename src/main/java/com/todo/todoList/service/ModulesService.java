@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public interface ModulesService {
 
-    Modules saveModule(Modules module);
+    Modules[] saveModule(Modules[] module);
 
     ArrayList<Modules>getModules();
 

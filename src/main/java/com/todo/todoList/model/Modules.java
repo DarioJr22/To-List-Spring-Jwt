@@ -23,10 +23,10 @@ public class Modules {
     private Long id;
 
 
-    @Column(name = "name",unique = true,nullable = false)
+    @Column(name = "name",nullable = false)
     private String nome;
 
-    @Column(name="link",unique = true,nullable = false)
+    @Column(name="link",nullable = false)
     private String link;
 
     @Column(name="icon")

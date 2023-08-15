@@ -14,8 +14,12 @@ public class ModuleServiceImp implements  ModulesService{
 
     @Autowired ModulesRepository moduleRepository;
     @Override
-    public Modules saveModule(Modules module) {
-        moduleRepository.save(module);
+    public Modules[] saveModule(Modules[] module) {
+
+        for(Modules m:module){
+            moduleRepository.save(m);
+        };
+
         return module;
     }
 
