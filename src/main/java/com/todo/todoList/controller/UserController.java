@@ -31,8 +31,9 @@ public class UserController {
     }
 
     @PostMapping("/post")
-    public User postUsers(@RequestBody User user){
-        return UserService.saveUser(user);
+    public User[] postUsers(@RequestBody User[] user){
+        UserService.saveUser(user);
+        return user ;
     };
 
     @PutMapping("/{id}")

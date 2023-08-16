@@ -1,6 +1,7 @@
 package com.todo.todoList.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -37,6 +38,7 @@ private Boolean task_ini;
 private Boolean task_fin;
 
 @ManyToOne
+@JsonIgnore
 @JoinColumn(name = "usuario",nullable = false,updatable = false)
 private User usuario;
 //Num JOINB

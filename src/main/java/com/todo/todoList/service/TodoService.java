@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public interface TodoService {
 
-    Task saveTask(Task task);
+    Task[] saveTask(Task[] task);
     ArrayList<Task> getTasks();
 
     Task putTask(Task taskUp,Long id);

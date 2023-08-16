@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public interface UserService {
 
-    User saveUser(User user);
+    User[] saveUser(User[] user);
 
     ArrayList<User> getUser();
 

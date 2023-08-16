@@ -18,8 +18,12 @@ public class TodoServiceImp  implements TodoService{
     @Autowired TodoRepository TaskRepo;
     @Autowired UserRepository userRepository;
     @Override
-    public Task saveTask(Task task) {
-        TaskRepo.save(task);
+    public Task[] saveTask(Task[] task) {
+
+        for(Task i:task){
+            TaskRepo.save(i);
+        }
+
         return task;
     }
 

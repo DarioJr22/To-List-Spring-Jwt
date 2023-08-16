@@ -22,7 +22,7 @@ public class TaskController {
     }
 
     @PostMapping("/post")
-    public Task postTask(@RequestBody Task task){
+    public Task[] postTask(@RequestBody Task[] task){
         return todoService.saveTask(task);
     }
 

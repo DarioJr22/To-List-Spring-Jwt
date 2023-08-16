@@ -15,8 +15,13 @@ public class UserServiceImp implements UserService{
 
     @Autowired UserRepository UserRepo;
     @Override
-    public User saveUser(User user) {
-        return UserRepo.save(user);
+    public User[] saveUser(User[] users) {
+
+        for(User i:users){
+            UserRepo.save(i);
+        }
+
+        return users;
     }
 
     @Override
